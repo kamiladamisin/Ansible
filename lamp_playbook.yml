@@ -7,5 +7,6 @@
   vars:
     page_title: 'DTIT'
 
-  roles:
-    - lamp
+  tasks:
+    - name: Test
+      shell: 'sudo echo test'
