@@ -1,0 +1,11 @@
+---
+- name: LAMP playbook
+  hosts:
+    - centos
+  gather_facts: yes
+
+  vars:
+    page_title: 'DTIT'
+
+  roles:
+    - lamp

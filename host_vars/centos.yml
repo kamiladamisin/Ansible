@@ -1,0 +1,2 @@
+ansible_host: 18.185.178.144
+ansible_user: ec2-user

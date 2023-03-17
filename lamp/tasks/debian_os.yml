@@ -1,0 +1,27 @@
+---
+- name: Install packages for Debian
+  apt:
+    name: '{{ debian_packages }}'
+    state: present
+  tags: 
+    - install
+
+- name: Create directory for key
+  file:
+    path: /etc/apt/trusted.gpg.d
+    state: directory
+  tags:
+    - install
+
+- name: Add new GPG key
+  apt_key:
+    url: https://packages.sury.org/php/apt.gpg 
+    keyring: /etc/apt/trusted.gpg.d/php.gpg
+    state: present
+  tags:
+    - install
+
+- name: Start shell command
+  shell: 'echo "deb https://packages.sury.org/php/ {{ ansible_distribution_release }} main" > /etc/apt/sources.list.d/php.list'
+  tags:
+    - install
